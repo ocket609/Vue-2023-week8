@@ -32,7 +32,7 @@ const routes = [
         component: () => import('../views/User/CheckOutView.vue')
       },
       {
-        path: 'checkoutpay',
+        path: 'checkoutpay/:id',
         component: () => import('../views/User/CheckOutPayView.vue')
       }
     ]

@@ -59,8 +59,7 @@ const { VITE_URL, VITE_NAME } = import.meta.env
 export default {
   data () {
     return {
-      order: {},
-      orderId: {}
+      order: {}
     }
   },
   methods: {
@@ -72,9 +71,9 @@ export default {
         .get(url)
         .then((res) => {
           console.log(res)
-          console.log(res.data)
+          console.log(res.data.order)
           this.order = res.data.order
-          this.orderId = res.data.order.id
+          // this.orderId = res.data.order.id
         })
         .catch((err) => {
           console.log(err)

@@ -43,7 +43,7 @@
             <div class="d-flex flex-column-reverse flex-md-row mt-4 justify-content-between align-items-md-center align-items-end w-100">
               <RouterLink type="button"
                 class="btn btn-dark py-3 px-7 rounded-0"
-                to="/checkoutpay"
+                :to="`/checkoutpay/${order.orderId}`"
                 @click="createOrder()">送出訂單</RouterLink>
             </div>
           </div>
@@ -70,7 +70,8 @@ export default {
         },
         message: ''
       },
-      orderId: this.$route.params.id
+      // orderId: this.$route.params.id,
+      order: {}
     }
   },
   methods: {
@@ -91,11 +92,12 @@ export default {
           alert(res.data.message)
           this.$refs.form.resetForm() // 成功送出後使用 resetForm() 語法來清除表單欄位的內容
           this.form.message = '' // 成功送出後，清空留言
+          this.order = res.data
+          // this.orderId = res.data.orderId
           this.getCart()
-          this.$router.push(`/checkOutPay/${res.data.orderId}`)
         })
         .catch((err) => {
-          console.log(err.response.data.message)
+          console.log(err)
           alert(err.response.data.message)
         })
     }

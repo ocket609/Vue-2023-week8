@@ -15,14 +15,14 @@
             </div>
             <div class="mb-2">
                 <h4 class="mb-4">訂單細項</h4>
-                <div class="d-flex" v-for="item in order" :key="item.id">
-                    <img src="" alt="" class="me-2" style="width: 48px; height: 48px; object-fit: cover">
+                <div class="d-flex" v-for="item in order.products" :key="item.id">
+                    <img :src="item.product.imageUrl" alt="" class="me-2" style="width: 48px; height: 48px; object-fit: cover">
                     <div class="w-100">
                         <div class="d-flex justify-content-between">
-                        <p class="mb-0 fw-bold">{{ order }}</p>
-                        <p class="mb-0">NT${{ order }}</p>
+                        <p class="mb-0 fw-bold">{{ item.product.title }}</p>
+                        <p class="mb-0">NT${{ item.total }}</p>
                         </div>
-                        <p class="mb-0 fw-bold">x{{ order }}</p>
+                        <p class="mb-0 fw-bold">x{{ item.qty }}</p>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
               <tbody>
                 <tr>
                   <th scope="row" class="border-0 px-0 pt-4 font-weight-normal">小計</th>
-                  <td class="text-end border-0 px-0 pt-4">NT${{ order }}</td>
+                  <td class="text-end border-0 px-0 pt-4">NT${{ order.total }}</td>
                 </tr>
                 <tr>
                   <th scope="row" class="border-0 px-0 pt-0 pb-4 font-weight-normal">付款方式</th>
@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="d-flex flex-column-reverse flex-md-row mt-4 justify-content-center align-items-md-center align-items-end w-100">
-            <a href="./checkout-success.html" class="btn btn-dark py-3 px-7">確認結帳</a>
+            <button type="button" class="btn btn-dark py-3 px-7" @click.prevent="orderPay()">確認結帳</button>
           </div>
       </div>
     </div>
@@ -59,7 +59,8 @@ const { VITE_URL, VITE_NAME } = import.meta.env
 export default {
   data () {
     return {
-      order: {}
+      order: {},
+      orderProduct: []
     }
   },
   methods: {
@@ -73,6 +74,7 @@ export default {
           console.log(res)
           console.log(res.data.order)
           this.order = res.data.order
+          // this.orderProduct = res.data.order.products.id
           // this.orderId = res.data.order.id
         })
         .catch((err) => {
@@ -81,11 +83,27 @@ export default {
         })
     },
     // 付款
-    orderPay () {}
+    orderPay () {
+      const { id } = this.$route.params
+      const url = `${VITE_URL}/api/${VITE_NAME}/pay/${id}`
+      axios
+        .post(url)
+        .then((res) => {
+          console.log(res)
+          this.order.is_paid = true
+          alert(res.data.message)
+          this.$router.push('/')
+        })
+        .catch((err) => {
+          console.log(err)
+          alert(err.response.data.message)
+        })
+    }
   },
   mounted () {
     console.log(this.$route)
     this.getOrder()
+    this.orderPay()
   }
 }
 </script>

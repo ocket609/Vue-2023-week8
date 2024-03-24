@@ -19,8 +19,8 @@
         </div>
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end align-items-start text-white">
           <div class="mb-md-0 mb-1">
-            <p class="mb-0">02-3456-7890</p>
-            <p class="mb-0">service@mail.com</p>
+            <p class="mb-0">02-8888-8888</p>
+            <p class="mb-0">istest@mail.com</p>
           </div>
           <p class="mb-0">© 2020 LOGO All Rights Reserved.</p>
           <RouterLink class="text-white-50 bg-dark mb-0" to="/"><i class="bi bi-gear-fill"></i></RouterLink>

@@ -1,0 +1,1 @@
+import{_ as o,c as n,d as t,F as c,b as r,o as s,r as a}from"./index--irw_gya.js";const _={},l=r("h2",null,"優惠券",-1);function d(i,m){const e=a("RouterView");return s(),n(c,null,[l,t(e)],64)}const p=o(_,[["render",d]]);export{p as default};

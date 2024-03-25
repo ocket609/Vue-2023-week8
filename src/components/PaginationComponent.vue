@@ -3,7 +3,7 @@
         <ul class="pagination">
             <li class="page-item" :class="{disabled: !pages.has_pre}">
                 <a class="page-link" aria-label="Previous"
-                    @click="getProducts(pages.current_page - 1)">
+                    @click.prevent ="getProducts(pages.current_page - 1)">
                     <!-- "pages.current_page - 1" => 前一頁，當前頁減一 -->
                     <span aria-hidden="true">&laquo;</span>
                 </a>
@@ -15,13 +15,13 @@
             <!-- pages.current_page 當前頁面 -->
             <!-- 這邊 page 為單純數字索引，Vue 不建議用索引當 key 值，因此加入一段隨意的值進去 -->
                 <a class="page-link"
-                    @click="getProducts(page)">
+                    @click.prevent ="getProducts(page)">
                     {{ page }}
                 </a>
             </li>
             <li class="page-item" :class="{disabled: !pages.has_next}">
                 <a class="page-link" aria-label="Next"
-                    @click="getProducts(pages.current_page + 1)">
+                    @click.prevent ="getProducts(pages.current_page + 1)">
                     <!-- "pages.current_page + 1" => 後一頁，當前頁加一 -->
                     <span aria-hidden="true">&raquo;</span>
                 </a>

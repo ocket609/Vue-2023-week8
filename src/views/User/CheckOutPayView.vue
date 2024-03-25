@@ -15,12 +15,12 @@
             </div>
             <div class="mb-2">
                 <h4 class="mb-4">訂單細項</h4>
-                <div class="d-flex" v-for="item in order.products" :key="item.id">
+                <div class="d-flex mb-2" v-for="item in order.products" :key="item.id">
                     <img :src="item.product.imageUrl" alt="" class="me-2" style="width: 48px; height: 48px; object-fit: cover">
                     <div class="w-100">
                         <div class="d-flex justify-content-between">
                         <p class="mb-0 fw-bold">{{ item.product.title }}</p>
-                        <p class="mb-0">NT${{ item.total }}</p>
+                        <p class="mb-0">NT${{ item.final_total }}</p>
                         </div>
                         <p class="mb-0 fw-bold">x{{ item.qty }}</p>
                     </div>
@@ -103,7 +103,6 @@ export default {
   mounted () {
     console.log(this.$route)
     this.getOrder()
-    this.orderPay()
   }
 }
 </script>

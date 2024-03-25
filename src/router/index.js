@@ -36,6 +36,36 @@ const routes = [
         component: () => import('../views/User/CheckOutPayView.vue')
       }
     ]
+  },
+  {
+    path: '/login',
+    name: '登入',
+    component: () => import('../views/User/LoginView.vue')
+  },
+  { // 重新導向
+    path: '/Admin/:pathMatch(.*)*',
+    redirect: { name: '登入' }
+  },
+  {
+    path: '/admin',
+    component: () => import('../views/Admin/DashboardView.vue'),
+    children: [
+      {
+        path: 'products',
+        name: '後台產品列表',
+        component: () => import('../views/Admin/AdminProductsView.vue')
+      },
+      {
+        path: 'order',
+        name: '訂單',
+        component: () => import('../views/Admin/AdminOrderView.vue')
+      },
+      {
+        path: 'coupon',
+        name: '優惠券',
+        component: () => import('../views/Admin/AdminCouponView.vue')
+      }
+    ]
   }
 ]
 

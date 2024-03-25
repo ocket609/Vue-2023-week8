@@ -23,7 +23,7 @@
             <p class="mb-0">istest@mail.com</p>
           </div>
           <p class="mb-0">© 2020 LOGO All Rights Reserved.</p>
-          <RouterLink class="text-white-50 bg-dark mb-0" to="/"><i class="bi bi-gear-fill"></i></RouterLink>
+          <RouterLink class="text-white-50 bg-dark mb-0" to="/admin"><i class="bi bi-gear-fill"></i></RouterLink>
         </div>
       </div>
     </div>

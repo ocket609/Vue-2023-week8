@@ -47,14 +47,32 @@
             <div class="col-6">
               <div class="input-group my-3 bg-light rounded">
                 <div class="input-group-prepend">
-                  <button class="btn btn-outline-dark border-0 py-2" type="button" id="button-addon1">
-                    <i class="fas fa-minus"></i>
+                  <!-- 數量-- (數量大於1 出現加號) -->
+                  <button
+                    class="btn btn-outline-dark border-0 py-2"
+                    type="button"
+                    id="button-addon1"
+                    @click="qty--"
+                    :disabled="qty === 1">
+                    <i class="bi bi-dash"></i>
                   </button>
                 </div>
-                <input type="text" class="form-control border-0 text-center my-auto shadow-none bg-light" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" value="1">
+                <input
+                  type="text"
+                  class="form-control border-0 text-center my-auto shadow-none bg-light"
+                  placeholder=""
+                  aria-label="Example text with button addon"
+                  aria-describedby="button-addon1"
+                  value="1"
+                  v-model="qty">
                 <div class="input-group-append">
-                  <button class="btn btn-outline-dark border-0 py-2" type="button" id="button-addon2">
-                    <i class="fas fa-plus"></i>
+                  <!-- 數量++ -->
+                  <button
+                    class="btn btn-outline-dark border-0 py-2"
+                    type="button"
+                    id="button-addon2"
+                    @click="qty++">
+                    <i class="bi bi-plus"></i>
                   </button>
                 </div>
               </div>
@@ -62,7 +80,7 @@
             <div class="col-6">
               <a href="./checkout.html"
                 class="text-nowrap btn btn-dark w-100 py-2"
-                @click.prevent="addToCart(product.id)"
+                @click.prevent="addToCart(product.id, qty)"
               >加入購物車</a>
             </div>
           </div>
@@ -77,7 +95,7 @@
         </div>
       </div>
       <!-- swiper -->
-      <h3 class="fw-bold">Lorem ipsum dolor sit amet</h3>
+      <h3 class="fw-bold"></h3>
       <!--<div class="swiper-container mt-4 mb-5">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
@@ -159,7 +177,8 @@ export default {
   data () {
     return {
       // 單一資料 {}
-      product: {}
+      product: {},
+      qty: 1
     }
   },
   methods: {

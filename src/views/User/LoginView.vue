@@ -56,7 +56,7 @@ export default {
           const { token, expired } = res.data
           // console.log(token, expired)
           // 到期日
-          document.cookie = `loginToken=${token}; expires=${new Date(expired)}`
+          document.cookie = `loginToken=${token}; expires=${new Date(expired)}; path=/`
           // 轉址
           this.$router.push('admin/products')
         })

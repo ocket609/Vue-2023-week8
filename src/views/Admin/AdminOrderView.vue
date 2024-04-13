@@ -11,6 +11,7 @@
           <th>應付金額</th>
           <th>是否付款</th>
           <th>編輯</th>
+          <!--<th>{{ x }}</th>-->
         </tr>
       </thead>
       <tbody>
@@ -19,7 +20,7 @@
             <!-- 購買時間 -->
             <td>{{ $filters.date(item.create_at) }}</td>
             <!-- Email -->
-            <td>{{ item.user.email }}</td>
+            <td>{{ item.user?.email }}</td>
             <!-- 訂單編號 -->
             <td>{{ item.id }}</td>
             <!-- 購買款項 -->
@@ -124,7 +125,7 @@ const { VITE_URL, VITE_NAME } = import.meta.env
 export default {
   data () {
     return {
-      orders: [],
+      orders: {},
       tempOrder: {},
       currentPage: 1,
       pagination: {}
@@ -144,7 +145,7 @@ export default {
       axios
         .get(url)
         .then((res) => {
-          console.log(res.data.orders)
+          // console.log(res.data.orders)
           this.orders = res.data.orders
           this.pagination = res.data.pagination
         })
@@ -224,6 +225,12 @@ export default {
   },
   mounted () {
     this.getOrder()
+  },
+  computed: {
+    x: function () {
+      // console.log(this.orders?.user)
+      return this.orders[6]?.user.email
+    }
   }
 }
 </script>

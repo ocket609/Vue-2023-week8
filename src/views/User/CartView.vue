@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container mb-6">
       <div class="mt-3">
         <h3 class="mt-3 mb-4">購物車</h3>
         <div class="row">
@@ -94,9 +94,6 @@
               <RouterLink to="/checkout" class="btn btn-dark w-100 mt-4">結帳</RouterLink>
             </div>
           </div>
-        </div>
-        <div class="my-5">
-          <h3 class="fw-bold">Lorem ipsum dolor sit amet</h3>
         </div>
       </div>
     </div>

@@ -28,16 +28,17 @@ export default defineStore('cartStore', {
           alert(err.response.data.message)
         })
     },
-    addToCart (id) {
+    addToCart (id, qty = 1) {
       const url = `${VITE_URL}/api/${VITE_NAME}/cart`
       const order = {
         product_id: id, // 改成用參數傳入
-        qty: 1
+        qty
       }
       axios
         .post(url, { data: order })
         .then((res) => {
           console.log(res.data)
+          alert(res.data.message)
           this.getCart()
         })
         .catch((err) => {

@@ -8,7 +8,7 @@
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            <li class="page-item"
+            <li class="page-item cursor"
                 :class="{active: page === pages.current_page}"
                 v-for="page in pages.total_pages" :key="page + 123">
             <!-- pages.total_pages 總頁數跑回圈 -->
@@ -37,4 +37,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.cursor {
+    cursor: pointer;
+}
+</style>

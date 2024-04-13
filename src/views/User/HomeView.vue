@@ -19,7 +19,7 @@
             <h4>草本、木質調</h4>
             <div class="d-flex justify-content-between">
               <p class="card-text text-muted mb-0">
-                結合了草本植物和木質調香，帶來清新自然的氣息與溫暖和深度。。
+                結合了草本植物和木質調香，帶來清新自然的氣息與溫暖和深度。
               </p>
             </div>
           </div>

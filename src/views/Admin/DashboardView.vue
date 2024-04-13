@@ -52,7 +52,7 @@ export default {
         .then((res) => {
           alert('成功登出！')
           // 登入時有設置 cookie 存取 token，在登出時也要記得清除這個 cookie
-          document.cookie = 'loginToken=; expires=;'
+          document.cookie = 'loginToken=; expires=; path=/'
           this.$router.push('/')
         })
         .catch((err) => {

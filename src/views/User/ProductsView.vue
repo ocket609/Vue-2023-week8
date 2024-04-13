@@ -1,7 +1,7 @@
 <template>
     <div class="position-relative d-flex align-items-center justify-content-center" style="min-height: 200px;">
-      <div class="position-absolute" style="top:0; bottom: 0; left: 0; right: 0; background-image: url(https://images.unsplash.com/photo-1480399129128-2066acb5009e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80); background-position: center center; opacity: 0.1;"></div>
-      <h2 class="fw-bold">Lorem ipsum.</h2>
+      <div class="position-absolute" style="top:0; bottom: 0; left: 0; right: 0; background-image: url(../../../public/banner.jpg); background-position: center center; opacity: 0.1;"></div>
+      <!--<h2 class="fw-bold">各式手工皂</h2>-->
     </div>
     <div class="container mt-md-5 mt-3 mb-7">
       <div class="row">
@@ -11,7 +11,7 @@
               <div class="card-header px-0 py-4 bg-white border border-bottom-0 border-top border-start-0 border-end-0 rounded-0" id="headingOne" data-bs-toggle="collapse" data-bs-target="#collapseOne">
                 <div class="d-flex justify-content-between align-items-center pe-1">
                   <h4 class="mb-0">
-                    Lorem ipsum
+                    產品系列
                   </h4>
                   <i class="fas fa-chevron-down"></i>
                 </div>

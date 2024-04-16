@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2>優惠券</h2>
-        <button class="btn btn-outline-primary btn-xl"
+        <button type="button" class="btn btn-outline-primary btn-xl"
           @click="openCouponModal(true)">建立新優惠券</button>
     </div>
     <div>
@@ -95,7 +95,7 @@ export default {
     // 以 isNew 的 true / false 來判斷為新增或編輯； item 帶入 coupons 內容
     // 新增
     openCouponModal (isNew, item) {
-      console.log('openCouponModal')
+      // console.log('openCouponModal')
       this.isNew = isNew
       if (this.isNew) {
         this.tempCoupon = {
@@ -139,8 +139,7 @@ export default {
           this.getCoupons()
           // 成功後關閉 Modal
           this.$refs.couponModal.hideModal()
-          // 清除框內輸入內容
-          this.tempCoupon = {}
+          // 這邊不用清除框內輸入內容，每次開啟 modal 時 watch 會把 tempCoupon 值覆蓋
         })
         .catch((err) => {
           console.log(err.response.data.message)

@@ -2,7 +2,8 @@
   <div
     class="modal fade"
     id="couponModal" tabindex="-1" aria-labelledby="couponModalLabel"
-    aria-hidden="true">
+    aria-hidden="true"
+    ref="modal">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -26,7 +27,7 @@
           </div>
           <div class="mb-3">
             <label for="due_date" class="col-form-label">到期日</label>
-            <input type="date" class="form-control" id="due_date" v-model="tempCoupon.due_date">
+            <input type="date" class="form-control" id="due_date" v-model="due_date">
           </div>
           <div class="mb-3">
             <label for="percent" class="col-form-label">折扣百分比</label>

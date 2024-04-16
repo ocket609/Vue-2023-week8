@@ -64,9 +64,13 @@
               </tbody>
             </table>
             <div class="input-group w-50 mb-3">
-              <input type="text" class="form-control rounded-0 border-bottom border-top-0 border-start-0 border-end-0 shadow-none" placeholder="Coupon Code" aria-label="Recipient's username" aria-describedby="button-addon2">
+              <input type="text"
+                class="form-control rounded-0 border-bottom border-top-0 border-start-0 border-end-0 shadow-none"
+                v-model="coupon_code"
+                placeholder="請輸入優惠碼">
+              <!-- 帶入 CouponModal 優惠碼區塊id  v-model="coupon_code" -->
               <div class="input-group-append">
-                <button class="btn btn-outline-dark border-bottom border-top-0 border-start-0 border-end-0 rounded-0" type="button" id="button-addon2">
+                <button class="btn btn-outline-dark border-bottom border-top-0 border-start-0 border-end-0 rounded-0" type="button" @click="addCoupon(coupon_code)">
                     <i class="bi bi-send"></i>
                 </button>
               </div>
@@ -110,7 +114,8 @@ export default {
       cart: {},
       status: {
         cartQtyLoading: '' // 購物車列表數量
-      }
+      },
+      coupon_code: ''
     }
   },
   methods: {
@@ -171,6 +176,27 @@ export default {
         .catch((err) => {
           console.log(err.data.message)
           alert(err.response.data.message)
+        })
+    },
+    // 加入優惠券
+    addCoupon () {
+      const url = `${VITE_URL}/api/${VITE_NAME}/coupon`
+      // 取到客戶輸入的優惠券碼 API文件 post
+      const coupon = {
+        code: this.coupon_code
+      }
+
+      axios
+        .post(url, { data: { coupon } })
+        // API 資料需要帶入輸入的優惠券碼，去比對是否正確
+
+        .then((res) => {
+          console.log(res.data)
+          this.getCart()
+        })
+        .catch((err) => {
+          console.log(err.response.data.message)
+          alert('優惠卷代碼輸入錯誤，請再次嘗試')
         })
     }
   },

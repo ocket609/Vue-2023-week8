@@ -1,17 +1,21 @@
 <template>
-    <div class="container">
-        <h2>後台</h2>
-        <nav>
-            <RouterLink to="/admin/products">產品列表</RouterLink> |
-            <RouterLink to="/admin/order">訂單</RouterLink> |
-            <RouterLink to="/admin/coupon">優惠卷</RouterLink> |
-            <RouterLink to="/">返回前台</RouterLink> |
-            <a href="" @click.prevent="loginOut">登出</a>
-        </nav>
-        <RouterView v-if="checkSuccess"></RouterView>
-        <!-- 加上 checkSuccess 判斷 -->
-        <!-- 在 DashboardView.vue 的驗證加上 checkSuccess 的狀態，避免還沒進行驗證時，就進到後台產品或訂單頁面取資料，這時會造成錯誤。 -->
+  <div class="nav-style pt-6">
+    <div class="container mt-6">
+      <h2>後台</h2>
+      <nav class="mb-4">
+        <RouterLink class="link-style router-link-hover" to="/admin/products">產品列表</RouterLink> |
+        <RouterLink class="link-style router-link-hover" to="/admin/order">訂單</RouterLink> |
+        <RouterLink class="link-style router-link-hover" to="/admin/coupon">優惠卷</RouterLink> |
+        <RouterLink class="link-style router-link-hover" to="/">返回前台</RouterLink> |
+        <a class="link-style router-link-hover" href="" @click.prevent="loginOut">登出</a>
+      </nav>
     </div>
+  </div>
+  <div class="container mb-6">
+    <RouterView v-if="checkSuccess"></RouterView>
+    <!-- 加上 checkSuccess 判斷 -->
+    <!-- 在 DashboardView.vue 的驗證加上 checkSuccess 的狀態，避免還沒進行驗證時，就進到後台產品或訂單頁面取資料，這時會造成錯誤。 -->
+  </div>
 </template>
 
 <script>
@@ -68,3 +72,17 @@ export default {
   }
 }
 </script>
+
+<style>
+.link-style {
+  text-decoration: none;
+  color: #000;
+}
+.router-link-hover:hover {
+  font-weight: 700;
+  border-bottom: 1px solid #000;
+}
+.nav-style {
+  background: #D0D0D0;
+}
+</style>

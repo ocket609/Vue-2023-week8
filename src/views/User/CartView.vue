@@ -179,15 +179,15 @@ export default {
         })
     },
     // 加入優惠券
-    addCoupon () {
+    addCoupon (couponC) {
       const url = `${VITE_URL}/api/${VITE_NAME}/coupon`
       // 取到客戶輸入的優惠券碼 API文件 post
       const coupon = {
-        code: this.coupon_code
+        code: couponC
       }
 
       axios
-        .post(url, { data: { coupon } })
+        .post(url, { data: coupon })
         // API 資料需要帶入輸入的優惠券碼，去比對是否正確
 
         .then((res) => {

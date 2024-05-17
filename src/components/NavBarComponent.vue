@@ -1,17 +1,17 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="./index.html">LOGO</a>
+    <a class="navbar-brand" href="./index.html"><img src="../../public/soap.png" alt="LOGO"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <RouterLink class="nav-item nav-link text-center me-4 active" to="/">Home
+        <RouterLink class="nav-item nav-link nav-link-hover text-center me-4 active" to="/">Home
           <!--<span class="sr-only">(current)</span>-->
         </RouterLink>
-        <RouterLink class="nav-item nav-link text-center me-4" to="/products">產品</RouterLink>
-        <RouterLink class="nav-item nav-link text-center me-4" to="/about">About</RouterLink>
-        <RouterLink class="nav-item nav-link btn position-relative" to="/cart">
+        <RouterLink class="nav-item nav-link nav-link-hover text-center me-4" to="/products">產品</RouterLink>
+        <RouterLink class="nav-item nav-link nav-link-hover text-center me-4" to="/about">About</RouterLink>
+        <RouterLink class="nav-item nav-link nav-link-hover btn position-relative" to="/cart">
           <i class="bi bi-cart4"></i>
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             {{ this.carts?.length }}

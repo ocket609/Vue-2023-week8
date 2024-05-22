@@ -16,4 +16,10 @@ export default {
   max-width: 800px;
   height: auto;
 }
+@media (max-width: 992px) {
+  .img-sz {
+    max-width: 80%;
+    height: auto;
+  }
+}
 </style>
